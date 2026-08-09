@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高考试卷统计表</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-header: #f1f5f9;
+            --border-color: #cbd5e1;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background-color: var(--bg-card);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* 顶部规则提示框 */
+        .blockquote-note {
+            margin-bottom: 24px;
+            padding: 16px 20px;
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #1e40af;
+        }
+
+        .note-item {
+            margin-bottom: 4px;
+        }
+
+        .note-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 移动端横向滑动容器 */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            min-width: 700px;
+            table-layout: fixed;
+            border-collapse: collapse;
+            font-size: 14px;
+            line-height: 1.6;
+            background-color: var(--bg-card);
+            word-break: break-word;
+        }
+
+        th {
+            background-color: var(--bg-header);
+            font-weight: 600;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 12px 14px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            border: 1px solid var(--border-color);
+            padding: 12px 14px;
+            vertical-align: middle;
+            color: var(--text-main);
+            text-align: left;
+            transition: background-color 0.15s ease;
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        .col-year {
+            text-align: center;
+            font-weight: 600;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .col-total {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .col-spring {
+            text-align: center;
+            white-space: nowrap;
+            color: #475569;
+        }
+
+        .col-note {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* 矢量斜线：颜色匹配表格边框 */
+        .diagonal-cross {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cline x1='0' y1='100%25' x2='100%25' y2='0' stroke='%23cbd5e1' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* 红底黄字高亮标签 */
+        .highlight-red {
+            background-color: #ff0000;
+            color: #ffff00;
+            padding: 2px 7px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 2px 0;
+            font-weight: 600;
+            font-size: 13px;
+            box-shadow: 0 1px 2px rgba(255, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 16px 8px; }
+            .container { padding: 16px; border-radius: 12px; }
+            table { font-size: 13px; }
+            th, td { padding: 8px 8px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="blockquote-note">
+        <div class="note-item">
+            1. <span class="highlight-red">红底黄字的为教育部考试中心命题</span>
+        </div>
+        <div class="note-item">
+            2. 上海卷、上海春季卷计分规则：除2001年外，其余年份成绩 × 0.2（四舍五入）计入总分。
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:8%;">年份</th>
+                    <th style="width:42%;">秋季试卷</th>
+                    <th style="width:15%;">春季试卷</th>
+                    <th style="width:10%;">总份数</th>
+                    <th style="width:25%;">备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-year">2000</td>
+                    <td><span class="highlight-red">广东卷</span></td>
+                    <td class="col-spring diagonal-cross" rowspan="2"></td>
+                    <td class="col-total">1</td>
+                    <td class="col-note" rowspan="4"></td>
+                </tr>
+                <tr>
+                    <td class="col-year">2001</td>
+                    <td><span class="highlight-red">广东、河南卷</span>；上海卷（理科适用/文科适用）</td>
+                    <td class="col-total">4</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2002</td>
+                    <td><span class="highlight-red">广东、广西卷；江苏、河南卷</span>；上海卷（理科适用/文科适用）</td>
+                    <td class="col-spring" rowspan="11">上海春季卷</td>
+                    <td class="col-total" rowspan="4">5</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2003</td>
+                    <td><span class="highlight-red">广东、广西卷（旧课程卷）；河南、辽宁卷（新课程卷）</span>；上海卷（理科适用/文科适用）</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2004</td>
+                    <td><span class="highlight-red">广东、广西卷（同卷）；辽宁卷</span>；上海卷（理科适用/文科适用）</td>
+                    <td class="col-note">辽宁卷内容同广东、广西卷，每题分值翻倍</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2005</td>
+                    <td>广东卷；<span class="highlight-red">辽宁卷</span>；上海卷（理科适用/文科适用）</td>
+                    <td class="col-note" rowspan="7"></td>
+                </tr>
+                <tr>
+                    <td class="col-year">2006</td>
+                    <td>广东卷；上海卷（理科适用/文科适用）</td>
+                    <td class="col-total">4</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2007</td>
+                    <td rowspan="3">广东卷（理科基础/文科基础）；上海卷（理科适用/文科适用）</td>
+                    <td class="col-total" rowspan="3">5</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2008</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2009</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2010</td>
+                    <td rowspan="2">上海卷（理科适用/文科适用）</td>
+                    <td class="col-total" rowspan="2">3</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2011</td>
+                </tr>
+                <tr>
+                    <td class="col-year">2012</td>
+                    <td class="diagonal-cross"></td>
+                    <td class="col-total">1</td>
+                    <td class="col-note">秋季取消综合</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
