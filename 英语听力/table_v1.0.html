@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1999-2027年各省高考英语听力政策表（1.0版）</title>
+<style>
+  @font-face {
+    font-family: "AndroidSourceSans";
+    src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url("file:///system/fonts/SourceSansPro-Regular.ttf");
+  }
+  @font-face {
+    font-family: "AndroidNotoCJK";
+    src: local("Noto Sans CJK SC Regular"), local("NotoSansCJK-Regular"), url("file:///system/fonts/NotoSansCJK-Regular.ttc");
+  }
+
+  * { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    padding: 28px;
+    font-family: "AndroidSourceSans", "AndroidNotoCJK", "Source Sans Pro", "Noto Sans CJK SC", sans-serif;
+    background: #fff;
+    color: #111;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .wrap {
+    width: max-content;
+    min-width: 1100px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0 0 24px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .chart {
+    display: grid;
+    grid-template-columns: 150px repeat(30, 58px);
+    grid-auto-rows: 40px;
+    border-top: 2px solid #222;
+    border-bottom: 2px solid #222;
+    border-left: 2px solid #222;
+    position: relative;
+  }
+
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .header {
+    font-weight: 600;
+    border-bottom: 1px solid #222;
+  }
+
+  .province {
+    justify-content: flex-start;
+    padding-left: 16px;
+    font-size: 16px;
+  }
+
+  .bar {
+    height: 100%;
+    width: 100%;
+  }
+
+  .none  { background: #fff !important; }
+  .trial { background: #9d9d9d !important; }
+  .p20   { background: #4aa238 !important; }
+  .p30   { background: #ffe916 !important; }
+  .red   { background: #e63946 !important; }
+  .blue  { background: #4b9cd3 !important; }
+
+  .crossed-white, .crossed-gray {
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .crossed-white {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cline x1='0' y1='0' x2='100' y2='100' stroke='white' stroke-width='2.5' vector-effect='non-scaling-stroke'/%3E%3Cline x1='0' y1='100' x2='100' y2='0' stroke='white' stroke-width='2.5' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") !important;
+  }
+
+  .crossed-gray {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cline x1='0' y1='0' x2='100' y2='100' stroke='%239d9d9d' stroke-width='3' vector-effect='non-scaling-stroke'/%3E%3Cline x1='0' y1='100' x2='100' y2='0' stroke='%239d9d9d' stroke-width='3' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") !important;
+  }
+
+  .legend {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: max-content;
+    font-size: 16px;
+  }
+
+  .legend-item, .legend-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legend-group {
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .legend-box {
+    width: 30px;
+    height: 22px;
+    border: 1px solid #666;
+    flex-shrink: 0;
+  }
+
+  .note {
+    margin-top: 22px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 4mm 6mm;
+  }
+
+  @media print {
+    html, body {
+      height: 100%;
+      overflow: visible !important;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      background: #fff;
+    }
+
+    .wrap {
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    h1 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .chart {
+      grid-template-columns: 60px repeat(30, 1fr) !important;
+      grid-auto-rows: 19.5px !important;
+    }
+
+    .cell {
+      font-size: 10px !important;
+    }
+
+    .header {
+      font-size: 9px !important;
+    }
+
+    .province {
+      padding-left: 2px !important;
+      font-size: 11px !important;
+    }
+
+    .legend {
+      margin-top: 6px;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 3px 12px;
+      font-size: 10.5px;
+    }
+
+    .legend-item {
+      gap: 6px;
+    }
+
+    .legend-box {
+      width: 20px;
+      height: 12px;
+    }
+
+    .note {
+      margin-top: 4px;
+      font-size: 11px !important;
+      line-height: 1.3;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>1999-2027年各省高考英语听力政策表（1.0版）</h1>
+
+  <div id="chart" class="chart"></div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-box none"></span>高考试卷卷面无听力部分</div>
+    <div class="legend-item"><span class="legend-box trial"></span>卷面有听力部分，但不计入总分或者不考听力</div>
+    <div class="legend-item"><span class="legend-box p20"></span>卷面有听力部分，分值20分，计入总分，一次机会</div>
+    <div class="legend-item"><span class="legend-box p30"></span>卷面有听力部分，分值30分，计入总分，一次机会</div>
+    <div class="legend-item"><span class="legend-box red"></span>听力/听说考试两次机会，取较高成绩计入总分</div>
+    <div class="legend-item"><span class="legend-box blue"></span>听说考试一次机会，计入总分</div>
+    <div class="legend-item"><span class="legend-box trial crossed-white"></span>在底色意思基础上不考听力</div>
+    <div class="legend-item">
+      <div class="legend-group">
+        <span class="legend-box p30 crossed-gray"></span>
+        <span>/</span>
+        <span class="legend-box red crossed-gray"></span>
+      </div>
+      在底色意思基础上听力部分分值计入总分
+    </div>
+  </div>
+
+  <div class="note">
+    <div>注1：吉林2011年以10分，2012以20分计入总分</div>
+    <div>注2：贵州2013，2014年以15分计入总分</div>
+  </div>
+</div>
+
+<script>
+const policyData = {
+  "广东":   [[1999, 2010, "p30"], [2011, 2027, "blue"]],
+  "江苏":   [[1999, 1999, "none"], [2000, 2000, "p20"], [2001, 2007, "p30"], [2008, 2020, "p20"], [2021, 2027, "p30"]],
+  "浙江":   [[1999, 1999, "none"], [2000, 2004, "p30"], [2005, 2008, "none"], [2009, 2027, "red"]],
+  "吉林":   [[1999, 2000, "none"], [2001, 2004, "p30"], [2005, 2009, "none"], [2010, 2010, "trial"], [2011, 2027, "p30"]],
+  "江西":   [[1999, 1999, "none"], [2000, 2000, "trial"], [2001, 2027, "p30"]],
+  "内蒙古": [[1999, 2000, "none"], [2001, 2004, "p30"], [2005, 2024, "trial"], [2025, 2027, "p30"]],
+  "上海":   [[1999, 1999, "none"], [2000, 2000, "trial"], [2001, 2016, "p30"], [2017, 2027, "red"]],
+  "安徽":   [[1999, 2000, "none"], [2001, 2027, "p30"]],
+  "山东":   [[1999, 2000, "none"], [2001, 2013, "p30"], [2014, 2014, "none"], [2015, 2019, "p30"], [2020, 2024, "red"], [2025, 2027, "p30"]],
+  "海南":   [[1999, 2000, "none"], [2001, 2004, "p30"], [2005, 2007, "trial"], [2008, 2027, "p30"]],
+  "云南":   [[1999, 2000, "none"], [2001, 2010, "p30"], [2011, 2024, "red"], [2025, 2027, "p30"]],
+  "天津":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2009, "p30"], [2010, 2027, "red"]],
+  "山西":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2004, "p30"], [2005, 2027, "trial"]],
+  "河南":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2004, "p30"], [2005, 2026, "trial"], [2027, 2027, "p30"]],
+  "福建":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2027, "p30"]],
+  "湖北":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2027, "p30"]],
+  "重庆":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2013, "p30"], [2014, 2015, "red"], [2016, 2027, "p30"]],
+  "四川":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2007, "p30"], [2008, 2015, "none"], [2016, 2027, "p30"]],
+  "贵州":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2004, "p30"], [2005, 2012, "none"], [2013, 2027, "red"]],
+  "甘肃":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2004, "p30"], [2005, 2012, "none"], [2013, 2023, "trial"], [2024, 2027, "p30"]],
+  "新疆":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2006, "p30"], [2007, 2010, "none"], [2011, 2027, "trial"]],
+  "北京":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2017, "p30"], [2018, 2027, "red"]],
+  "西藏":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2027, "p30"]],
+  "陕西":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2004, "p30"], [2005, 2015, "none"], [2016, 2027, "p30"]],
+  "宁夏":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2027, "p30"]],
+  "河北":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2004, "p30"], [2005, 2011, "none"], [2012, 2027, "p30"]],
+  "黑龙江": [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2014, "p30"], [2015, 2023, "trial"], [2024, 2027, "p30"]],
+  "湖南":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2027, "p30"]],
+  "广西":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2027, "p30"]],
+  "辽宁":   [[1999, 2000, "none"], [2001, 2002, "trial"], [2003, 2004, "p30"], [2005, 2022, "trial"], [2023, 2027, "p30"]],
+  "青海":   [[1999, 2000, "none"], [2001, 2002, "trial"], [2003, 2027, "p30"]]
+};
+
+const crossedWhite = { "河北": [2001], "黑龙江": [2001], "湖南": [2001], "广西": [2001], "青海": [2001, 2002] };
+const crossedGray = { "吉林": [2011, 2012], "贵州": [2013, 2014] };
+
+let html = '<div class="cell header province">省份</div>';
+for (let y = 1999; y <= 2027; y++) html += `<div class="cell header">${y}</div>`;
+html += '<div class="cell header">⋯</div>';
+
+for (const [prov, ranges] of Object.entries(policyData)) {
+  html += `<div class="cell province">${prov}</div>`;
+  const map = {};
+  ranges.forEach(([s, e, st]) => { for (let y = s; y <= e; y++) map[y] = st; });
+  for (let y = 1999; y <= 2027; y++) {
+    let cls = 'bar ' + map[y];
+    if (crossedWhite[prov]?.includes(y)) cls += ' crossed-white';
+    if (crossedGray[prov]?.includes(y)) cls += ' crossed-gray';
+    html += `<div class="${cls}"></div>`;
+  }
+  html += '<div class="bar none"></div>';
+}
+
+document.getElementById("chart").innerHTML = html;
+</script>
+</body>
+</html>
