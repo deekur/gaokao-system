@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1999-2027年各省高考英语听力政策表（1.0版）</title>
+<title>1999-2027年各省高考英语听力政策表（1.1版）</title>
 <style>
   @font-face {
     font-family: "AndroidSourceSans";
@@ -198,7 +198,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>1999-2027年各省高考英语听力政策表（1.0版）</h1>
+  <h1>1999-2027年各省高考英语听力政策表（1.1版）</h1>
 
   <div id="chart" class="chart"></div>
 
@@ -223,6 +223,7 @@
   <div class="note">
     <div>注1：吉林2011年以10分，2012以20分计入总分</div>
     <div>注2：贵州2013，2014年以15分计入总分</div>
+    <div>注3：海南2008年以9分，2009年以15分计入总分</div>
   </div>
 </div>
 
@@ -262,7 +263,7 @@ const policyData = {
 };
 
 const crossedWhite = { "河北": [2001], "黑龙江": [2001], "湖南": [2001], "广西": [2001], "青海": [2001, 2002] };
-const crossedGray = { "吉林": [2011, 2012], "贵州": [2013, 2014] };
+const crossedGray = { "吉林": [2011, 2012], "贵州": [2013, 2014], "海南": [2008, 2009] };
 
 let html = '<div class="cell header province">省份</div>';
 for (let y = 1999; y <= 2027; y++) html += `<div class="cell header">${y}</div>`;
