@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1999-2027年各省高考英语听力政策表（1.2版）</title>
+<title>1999年以来各省高考英语听力政策表（1.3版）</title>
 <style>
   @font-face {
     font-family: "AndroidSourceSans";
@@ -79,16 +79,9 @@
   .red   { background: #e63946 !important; }
   .blue  { background: #4b9cd3 !important; }
 
-  .crossed-white, .crossed-gray {
+  .crossed-gray {
     background-size: 100% 100% !important;
     background-repeat: no-repeat !important;
-  }
-
-  .crossed-white {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cline x1='0' y1='0' x2='100' y2='100' stroke='white' stroke-width='2.5' vector-effect='non-scaling-stroke'/%3E%3Cline x1='0' y1='100' x2='100' y2='0' stroke='white' stroke-width='2.5' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") !important;
-  }
-
-  .crossed-gray {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cline x1='0' y1='0' x2='100' y2='100' stroke='%239d9d9d' stroke-width='3' vector-effect='non-scaling-stroke'/%3E%3Cline x1='0' y1='100' x2='100' y2='0' stroke='%239d9d9d' stroke-width='3' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") !important;
   }
 
@@ -101,15 +94,10 @@
     font-size: 16px;
   }
 
-  .legend-item, .legend-group {
+  .legend-item {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  .legend-group {
-    gap: 4px;
-    flex-shrink: 0;
   }
 
   .legend-box {
@@ -198,26 +186,19 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>1999-2027年各省高考英语听力政策表（1.2版）</h1>
+  <h1>1999年以来各省高考英语听力政策表（1.3版）</h1>
 
   <div id="chart" class="chart"></div>
 
   <div class="legend">
-    <div class="legend-item"><span class="legend-box none"></span>高考试卷卷面无听力部分</div>
-    <div class="legend-item"><span class="legend-box trial"></span>卷面有听力部分，但不计入总分或者不考听力</div>
+    <div class="legend-item"><span class="legend-box none"></span>使用本身不含听力部分的试卷</div>
+    <div class="legend-item"><span class="legend-box trial"></span>听力不计入总分或者去除原卷听力部分</div>
     <div class="legend-item"><span class="legend-box p20"></span>卷面有听力部分，分值20分，计入总分，一次机会</div>
     <div class="legend-item"><span class="legend-box p30"></span>卷面有听力部分，分值30分，计入总分，一次机会</div>
     <div class="legend-item"><span class="legend-box red"></span>听力/听说考试两次机会，取较高成绩计入总分</div>
     <div class="legend-item"><span class="legend-box blue"></span>听说考试一次机会，计入总分</div>
-    <div class="legend-item"><span class="legend-box trial crossed-white"></span>在底色意思基础上不考听力</div>
-    <div class="legend-item">
-      <div class="legend-group">
-        <span class="legend-box p30 crossed-gray"></span>
-        <span>/</span>
-        <span class="legend-box red crossed-gray"></span>
-      </div>
-      在底色意思基础上听力部分分值计入总分
-    </div>
+    <div class="legend-item"><span class="legend-box p30 crossed-gray"></span>听力一次机会，部分分值计入总分</div>
+    <div class="legend-item"><span class="legend-box red crossed-gray"></span>听力两次机会，部分分值计入总分</div>
   </div>
 
   <div class="note">
@@ -248,7 +229,7 @@ const policyData = {
   "重庆":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2013, "p30"], [2014, 2015, "red"], [2016, 2027, "p30"]],
   "四川":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2007, "p30"], [2008, 2015, "none"], [2016, 2027, "p30"]],
   "贵州":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2004, "p30"], [2005, 2012, "none"], [2013, 2027, "red"]],
-  "甘肃":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2004, "p30"], [2005, 2023, "none"], [2024, 2027, "p30"]],
+  "甘肃":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2004, "p30"], [2005, 2012, "none"], [2013, 2023, "trial"], [2024, 2027, "p30"]],
   "新疆":   [[1999, 2000, "none"], [2001, 2001, "p20"], [2002, 2006, "p30"], [2007, 2010, "none"], [2011, 2027, "trial"]],
   "北京":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2017, "p30"], [2018, 2027, "red"]],
   "西藏":   [[1999, 2000, "none"], [2001, 2001, "trial"], [2002, 2027, "p30"]],
@@ -262,7 +243,6 @@ const policyData = {
   "青海":   [[1999, 2000, "none"], [2001, 2002, "trial"], [2003, 2027, "p30"]]
 };
 
-const crossedWhite = { "河北": [2001], "黑龙江": [2001], "湖南": [2001], "广西": [2001], "青海": [2001, 2002] };
 const crossedGray = { "吉林": [2011, 2012], "贵州": [2013, 2014], "海南": [2008, 2009] };
 
 let html = '<div class="cell header province">省份</div>';
@@ -275,7 +255,6 @@ for (const [prov, ranges] of Object.entries(policyData)) {
   ranges.forEach(([s, e, st]) => { for (let y = s; y <= e; y++) map[y] = st; });
   for (let y = 1999; y <= 2027; y++) {
     let cls = 'bar ' + map[y];
-    if (crossedWhite[prov]?.includes(y)) cls += ' crossed-white';
     if (crossedGray[prov]?.includes(y)) cls += ' crossed-gray';
     html += `<div class="${cls}"></div>`;
   }
